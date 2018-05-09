@@ -10,15 +10,8 @@ $.fn.deparamQueryString = function (query) {
 			query_string[pair[0]] = pair[1];
 			// If second entry with this name
 		} else if (typeof query_string[pair[0]] === "string") {
-			var path = pair[0].match(/(^[^\[]+)(\[.*\]$)?/);
-			if (path[2]) {
-				var arr = [ query_string[pair[0]], pair[1] ];
-				query_string[pair[0]] = arr;
-			} else {
-				// case of 'name'
-				query_string[pair[0]] = pair[1];
-			}
-			// If third or later entry with this name
+			var arr = [ query_string[pair[0]], pair[1] ];
+			query_string[pair[0]] = arr;
 		} else {
 			query_string[pair[0]].push(pair[1]);
 		}
